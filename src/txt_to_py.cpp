@@ -2,7 +2,7 @@
 #include <fstream>
 #include <iostream>
 
-std::string convert2py(const std::string &txtFilePath)
+std::string convert2py(std::string &txtFilePath)
 {
 
     std::string pyFilePath = txtFilePath.substr(0, txtFilePath.find_last_of('.')) + ".py";

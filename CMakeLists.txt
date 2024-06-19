@@ -17,7 +17,8 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 include_directories(${Python3_INCLUDE_DIRS})
 
 # Add the executable
-add_executable(my_backend src/main.cpp src/my_source.cpp)
+
+add_executable(my_backend src/main.cpp src/my_source.cpp src/txt_to_py.cpp)
 
 # Link the Python library
 target_link_libraries(my_backend ${Python3_LIBRARIES})

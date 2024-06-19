@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/my_backend.dir/src/main.cpp.o.d"
   "CMakeFiles/my_backend.dir/src/my_source.cpp.o"
   "CMakeFiles/my_backend.dir/src/my_source.cpp.o.d"
+  "CMakeFiles/my_backend.dir/src/txt_to_py.cpp.o"
+  "CMakeFiles/my_backend.dir/src/txt_to_py.cpp.o.d"
   "my_backend"
   "my_backend.pdb"
 )

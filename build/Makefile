@@ -177,6 +177,30 @@ src/my_source.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_backend.dir/build.make CMakeFiles/my_backend.dir/src/my_source.cpp.s
 .PHONY : src/my_source.cpp.s
 
+src/txt_to_py.o: src/txt_to_py.cpp.o
+.PHONY : src/txt_to_py.o
+
+# target to build an object file
+src/txt_to_py.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_backend.dir/build.make CMakeFiles/my_backend.dir/src/txt_to_py.cpp.o
+.PHONY : src/txt_to_py.cpp.o
+
+src/txt_to_py.i: src/txt_to_py.cpp.i
+.PHONY : src/txt_to_py.i
+
+# target to preprocess a source file
+src/txt_to_py.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_backend.dir/build.make CMakeFiles/my_backend.dir/src/txt_to_py.cpp.i
+.PHONY : src/txt_to_py.cpp.i
+
+src/txt_to_py.s: src/txt_to_py.cpp.s
+.PHONY : src/txt_to_py.s
+
+# target to generate assembly for a file
+src/txt_to_py.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_backend.dir/build.make CMakeFiles/my_backend.dir/src/txt_to_py.cpp.s
+.PHONY : src/txt_to_py.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -192,6 +216,9 @@ help:
 	@echo "... src/my_source.o"
 	@echo "... src/my_source.i"
 	@echo "... src/my_source.s"
+	@echo "... src/txt_to_py.o"
+	@echo "... src/txt_to_py.i"
+	@echo "... src/txt_to_py.s"
 .PHONY : help
 
 
