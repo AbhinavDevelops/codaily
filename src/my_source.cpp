@@ -4,8 +4,42 @@
 #include <unistd.h>
 #include <string>
 #include <sstream>
+#include <fstream>
 
-void my_function(const char *script_name)
+std::string convert2py(const std::string &txtFilePath)
+{
+
+    std::string pyFilePath = txtFilePath.substr(0, txtFilePath.find_last_of('.')) + ".py";
+
+    // Open the input .txt file
+    std::ifstream txtFile(txtFilePath);
+    if (!txtFile.is_open())
+    {
+        std::cerr << "Error: Could not open the .txt file." << std::endl;
+        return "";
+    }
+
+    // Open the output .py file
+    std::ofstream pyFile(pyFilePath);
+    if (!pyFile.is_open())
+    {
+        std::cerr << "Error: Could not create the .py file." << std::endl;
+        txtFile.close();
+        return "";
+    }
+
+    // Copy the content from the .txt file to the .py file
+    pyFile << txtFile.rdbuf();
+
+    // Close the files
+    txtFile.close();
+    pyFile.close();
+
+    std::cout << "File converted from .txt to .py and saved as " << pyFilePath << std::endl;
+    return pyFilePath;
+}
+
+void my_function(std::string &script_name)
 {
     Py_Initialize();
 
@@ -21,12 +55,12 @@ void my_function(const char *script_name)
     PyObject_SetAttrString(sys_module, "stdout", string_io_instance);
     PyObject_SetAttrString(sys_module, "stderr", string_io_instance);
 
-    FILE *fp = fopen(script_name, "r");
+    FILE *fp = fopen(script_name.c_str(), "r");
 
     if (fp)
     {
 
-        PyRun_SimpleFile(fp, script_name);
+        PyRun_SimpleFile(fp, script_name.c_str());
 
         fclose(fp);
     }
