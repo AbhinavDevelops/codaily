@@ -7,8 +7,8 @@ def execute_script(input_data):
                                stdout=subprocess.PIPE,
                                stderr=subprocess.PIPE,
                                universal_newlines=True)
-    output, error = process.communicate(input=input_data)
-    return int(output)
+    output, error = process.communicate()
+    return (output)
 
 
 # Opening and reading the CSV file
@@ -18,7 +18,7 @@ with open('test_cases.csv', 'r') as file:
 
     for row in csv_reader:
         input_data = row[0]
-        expected_output = int(row[1])
+        expected_output = (row[1])
         actual_output = execute_script(input_data)
 
         print(actual_output)
