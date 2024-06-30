@@ -1,0 +1,12 @@
+services:
+  backend:
+    build: .
+    container_name: backend_container
+    working_dir: /app
+    volumes:
+      - ./src:/app
+    environment:
+      - SUPABASE_KEY=${SUPABASE_KEY}
+      - SUPABASE_URL=${SUPABASE_URL}
+    env_file:
+      - .env
